@@ -396,10 +396,10 @@ class OpenAITests: XCTestCase {
     }
     
     func testCustomURLBuilt() {
-        let configuration = OpenAI.Configuration(token: "foo", organizationIdentifier: "bar", host: "my.host.com", timeoutInterval: 14)
+        let configuration = OpenAI.Configuration(token: "foo", organizationIdentifier: "bar", host: "my.host.com", pathPrefix: "/prefix", timeoutInterval: 14)
         let openAI = OpenAI(configuration: configuration, session: self.urlSession)
         let chatsURL = openAI.buildURL(path: .chats)
-        XCTAssertEqual(chatsURL, URL(string: "https://my.host.com:443/v1/chat/completions"))
+        XCTAssertEqual(chatsURL, URL(string: "https://my.host.com:443/prefix/v1/chat/completions"))
     }
 }
 

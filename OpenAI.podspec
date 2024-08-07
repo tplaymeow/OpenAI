@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/MacPaw/OpenAI.git', :tag => s.version.to_s }
   s.swift_version = '5.7'
   s.source_files = 'Sources/**/*.{swift}'
+  s.ios.deployment_target = '11.0'
 end
